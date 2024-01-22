@@ -1,0 +1,38 @@
+arm-
+using System;
+
+namespace ArmstrongNumbers
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            for (int i = 0; i <= 1000; i++)
+            {
+                int num = i;
+                int sum = 0;
+                int digits = 0;
+
+                while (num > 0)
+                {
+                    digits++;
+                    num /= 10;
+                }
+
+                num = i;
+
+                while (num > 0)
+                {
+                    int digit = num % 10;
+                    sum += (int)Math.Pow(digit, digits);
+                    num /= 10;
+                }
+
+                if (sum == i)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+    }
+}
